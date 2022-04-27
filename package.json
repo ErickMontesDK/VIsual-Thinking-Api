@@ -1,0 +1,29 @@
+{
+  "name": "code-challenge",
+  "description": "Ejercicio 5 Semana 4-LaunchX Node JS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
+    "linter": "node ./node_modules/eslint/bin/eslint.js .",
+    "linter-fix": "node ./node_modules/eslint/bin/eslint.js . --fix",
+    "server": "node ./lib/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErickMontesDK/Code-Challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErickMontesDK/Code-Challenge/issues"
+  },
+  "homepage": "https://github.com/ErickMontesDK/Code-Challenge#readme",
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "jest": "^28.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
