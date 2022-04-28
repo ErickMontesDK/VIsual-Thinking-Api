@@ -57,7 +57,7 @@ Devuelve la lista de emails de todos los estudiantes de VirtualPartners que teng
 
 <h4>Obtener estudiantes con creditos mayores a 500</h4>
 Ingresar url <code>http://localhost:3000/virtualpartners/students/fullcredits</code><br>
-Devuelve la lista de nombres y créditos de todos los estudiantes de VirtualPartners que tengan credits mayor a 500<i>haveCertification</i>.
+Devuelve la lista de nombres y créditos de todos los estudiantes de VirtualPartners que tengan credits mayor a 500
 
 
 
