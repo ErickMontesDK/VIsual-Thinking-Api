@@ -8,7 +8,7 @@ describe("Verificar funcionamiento de VisualPartnerController",()=>{
     });
     
     test("2-Recibir lista de correos con Certificate",()=>{
-        const FilterCertificateVsPartners=VisualPartnerController.getEmailsVirtualP(true);
+        const FilterCertificateVsPartners=VisualPartnerController.getEmailsVirtualP();
         
         for(let i=0; i<FilterCertificateVsPartners.length; i++){
             expect(FilterCertificateVsPartners[i]).toMatch(/@visualpartnership.xyz/);
@@ -16,7 +16,7 @@ describe("Verificar funcionamiento de VisualPartnerController",()=>{
     });
 
     test("3-Recibir lista de estudiantes con credits mayor a 500",()=>{
-        const FilterCreditsVsPartners=VisualPartnerController.getStudentsVPCredits(500);
+        const FilterCreditsVsPartners=VisualPartnerController.getStudentsVPCredits();
         
         for(let i=0; i<FilterCreditsVsPartners.length; i++){
             expect(FilterCreditsVsPartners[i].credits).toBeGreaterThan(500);

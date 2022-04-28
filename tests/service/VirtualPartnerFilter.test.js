@@ -7,14 +7,14 @@ describe("Verificar funcionamiento de VisualPartnerFilter",()=>{
         expect(AllVirtualPartners).toBeDefined();
     });
     test("2-Recibir lista de correos con Certificate",()=>{
-        const FilterCertificateVsPartners=VisualPartnerFilter.getEmailsWithCertification(true);
+        const FilterCertificateVsPartners=VisualPartnerFilter.getEmailsWithCertification();
 
         for(let i=0; i<FilterCertificateVsPartners.length; i++){
             expect(FilterCertificateVsPartners[i]).toMatch(/@visualpartnership.xyz/);
         }
     });
     test("3-Recibir lista de estudiantes con credits mayor a 500",()=>{
-        const FilterCreditsVsPartners=VisualPartnerFilter.getStudentsWithCredits(500);
+        const FilterCreditsVsPartners=VisualPartnerFilter.getStudentsWith500Credits();
 
         for(let i=0; i<FilterCreditsVsPartners.length; i++){
             expect(FilterCreditsVsPartners[i].credits).toBeGreaterThan(500);

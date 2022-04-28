@@ -1,4 +1,4 @@
-const Reader=require("./../../lib/service/Reader");
+const Reader=require("./../../lib/tools/Reader");
 
 describe("Verificar funcionamiento de Reader.js",()=>{
     test("1-Reader.js devuelva un Json del archivo solicitado",()=>{
