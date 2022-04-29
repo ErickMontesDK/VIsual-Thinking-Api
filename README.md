@@ -20,19 +20,59 @@ Mediante este proyecto, el usuario puede consultar una lista json por un servido
 
 ```mermaid
 flowchart TD
-    Reader --> VisualPartnerFilter-->VisualPartnerController-->Server
+    virtualpartners.Json-->Reader-->VisualPartnerFilter-->VisualPartnerController-->Server
 ```
 Donde:
 <dl>
-    <dt>Reader</dt>
-        <dd>Interpreta el archivo Json y almacena envía sus datos</dd>
-    <dt>VisualPartnerFilter</dt>
-        <dd>Procesa los datos interpretados por "Reader" y filtra la información de acuerdo a los requisitos solicitados</dd>
-    <dt>VisualPartnerController</dt>
-        <dd>Recibe la solicitud de información del "Server", la cual envía al método en "VisualPartnerFilter" correspondiente.</dd>
-    <dt>Server</dt>
-        <dd>Responde la solicitudes del usuario
-        </dd>
+<dt>Reader</dt>
+<dd>Interpreta el archivo Json y almacena envía sus datos
+
+```mermaid
+classDiagram
+class Reader{
+    +static returnFile(path)
+}
+```
+* <b>returnFile</b>:<br>-El módulo recibe la ubicación del archivo JSON a leer (path).<br>-Los datos del archivo los almacena y lo envía como respuesta 
+</dd>
+<dt>VisualPartnerFilter</dt>
+<dd>Procesa los datos interpretados por "Reader" y filtra la información de acuerdo a los requisitos solicitados</dd>
+
+```mermaid
+classDiagram
+class VisualPartnerFilter{
+    +static getVirtualPartners()
+    +static getEmailsWithCertification()
+    +static getStudentsWith500Credits()
+}
+```
+* <b>getVirtualPartners()</b>:<br>-Se encarga de enviar la ubicación del archivo JSON al módulo Reader,y almacena la lista de datos de los estudiantes de VirtualPartners<br>
+* <b>getEmailsWithCertification()</b>:<br>-Con la lista obtenida por <i>getVirtualPartners()</i>, filtra a los estudiantes cuyo value para la key "haveCertification" sea el valor booleano <i>True</i>.<br>-Ya almacenados los datos de los estudiantes filtrados, envía como respuesta un array con el "email" de cada estudiante<br>
+* <b>getStudentsWith500Credits()</b>:<br>-Con la lista de datos obtenida por <i>getVirtualPartners()</i>, filtra a los estudiantes cuyo value para la key "credits" sea mayor a 500, y los envia como respuesta. 
+</dd>
+
+
+<dt>VisualPartnerController</dt>
+<dd>Recibe la solicitud de información del "Server", la cual envía al método en "VisualPartnerFilter" correspondiente.</dd>
+
+```mermaid
+classDiagram
+class VisualPartnerController{
+    +static getStudentsVirtualP()
+    +static getEmailsVirtualPv()
+    +static getStudentsVPCredits()
+}
+```
+* <b>getStudentsVirtualP()</b>:<br>-Recibe la petición de server.js<br>-Llama al método <i>getVirtualPartners()</i> en VisualPartnerFilter, obteniendo la lista de datos de los estudiantes <br>-Envía como respuesta los datos<br>
+* <b>getEmailsVirtualPv()</b>:<br>-Recibe la petición de server.js<br>-Llama al método <i>getEmailsWithCertification</i> en VisualPartnerFilter, obteniendo la lista de emails de los estudiantes con "Certification"<br>-Envía como respuesta el array<br>
+* <b>getStudentsVPCredits()</b>:<br>-Recibe la petición de server.js<br>-Llama al método <i>getStudentsWith500Credits</i> en VisualPartnerFilter, obteniendo la lista de datos de estudiantes cuyos valor en "Credits" sea mayor que 500<br>-Envía como respuesta los datos filtrados<br>
+</dd>
+
+
+
+<dt>Server</dt>
+<dd>Responde la solicitudes del usuario
+</dd>
 </dl>
 
 <hr>
