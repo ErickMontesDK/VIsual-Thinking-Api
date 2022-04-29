@@ -23,7 +23,7 @@ describe("Verificar funcionamiento de VisualPartnerService",()=>{
         for(let i=0; i<FilterCertificateVsPartners.length; i++){
             expect(FilterCertificateVsPartners[i]).toMatch(/@visualpartnership.xyz/);
         }
-        expect(FilterCertificateVsPartners.length).toBe(5)
+        expect(FilterCertificateVsPartners.length).toBe(5);
     });
     test("3-Recibir aviso si un estudiante no tiene correo",()=>{
         const FilterCertificateVsPartners=VisualPartnerService.getEmailsWithCertification(testNoEmail);
@@ -31,17 +31,17 @@ describe("Verificar funcionamiento de VisualPartnerService",()=>{
         for(let i=0; i<FilterCertificateVsPartners.length; i++){
             expect(FilterCertificateVsPartners[i]).toMatch(/no tiene correo/);
         }
-        expect(FilterCertificateVsPartners.length).toBe(10)
+        expect(FilterCertificateVsPartners.length).toBe(10);
 
     });
 
     test("4-Recibir array vacio si no hay key de 'haveCertification'",()=>{
         const FilterCertificateVsPartners=VisualPartnerService.getEmailsWithCertification(testNull);
-        let probe=[]
-        expect(FilterCertificateVsPartners).toEqual(probe)
+        let probe=[];
+        expect(FilterCertificateVsPartners).toEqual(probe);
 
         const FilterCertificateVsPartners2=VisualPartnerService.getEmailsWithCertification(testNoCertificate);
-        expect(FilterCertificateVsPartners2).toEqual(probe)
+        expect(FilterCertificateVsPartners2).toEqual(probe);
     });
 
     test("5-Recibir lista de estudiantes con credits mayor a 500",()=>{
@@ -54,14 +54,14 @@ describe("Verificar funcionamiento de VisualPartnerService",()=>{
 
     test("6-Recibir array vacio si no hay datos",()=>{
         const FilterCreditsVsPartners=VisualPartnerService.getStudentsWith500Credits(testNull);
-        let probe=[]
-        expect(FilterCreditsVsPartners).toEqual(probe)
+        let probe=[];
+        expect(FilterCreditsVsPartners).toEqual(probe);
     });
 
     test("7-Recibir array vacio si no hay key de 'credits'",()=>{
         const FilterCreditsVsPartners=VisualPartnerService.getStudentsWith500Credits(testNoCredits);
-        let probe=[]
-        expect(FilterCreditsVsPartners).toEqual(probe)
+        let probe=[];
+        expect(FilterCreditsVsPartners).toEqual(probe);
 
     });
 
