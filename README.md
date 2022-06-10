@@ -1,6 +1,7 @@
 # Visual Thinking Api
 Este proyecto fue hecho para poner en practica los conocimientos adquiridos respecto al uso de dependencias como Express, eslint y Jest.
-Mediante este proyecto, el usuario puede consultar una lista json por un servidor. 
+Mediante este proyecto, el usuario puede consultar, mediante un servidor,  una lista de alumnos alojada en un archivo json. 
+Si desea ver el servidor remoto de la API, está en esta dirección <code>https://stark-inlet-21661.herokuapp.com/</code>
 
 ## Caracteristicas de proyecto
 
@@ -87,6 +88,10 @@ class VisualPartnerController{
 <hr>
 
 ## Consulta
+La API se encuentra accesible para cualquier persona en un servidor, pero si quiere revisar el código y tener un servidor local, lea la siguiente información:
+
+### Consulta en servidor local
+
 Las rutas o "endpoints" declaradas para consulta de información son las siguientes
 Primero es iniciar el servidor <code>npm run server</code>
 
@@ -105,6 +110,8 @@ Devuelve la lista de emails de todos los estudiantes de VirtualPartners que teng
 >Ingresar url <code>http://localhost:3000/virtualpartners/students/fullcredits</code><br>
 Devuelve la lista de estudiantes de VirtualPartners cuyo valor de credits sea mayor a 500
 
+### Consulta servidor remoto
+La API se encuentra en el URL: <code>https://stark-inlet-21661.herokuapp.com/</code>. Ahí mismo estan los links hacia las opciones de consulta.
 
 
 
