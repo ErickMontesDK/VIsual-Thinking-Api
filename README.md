@@ -1,7 +1,7 @@
 # Visual Thinking Api
 Este proyecto fue hecho para poner en practica los conocimientos adquiridos respecto al uso de dependencias como Express, eslint y Jest.
 Mediante este proyecto, el usuario puede consultar, mediante un servidor,  una lista de alumnos alojada en un archivo json. 
-Si desea ver el servidor remoto de la API, está en esta dirección <code>https://stark-inlet-21661.herokuapp.com/</code>
+Si desea ver el servidor remoto de la API, está en esta dirección <code>https://visual-thinking-api.herokuapp.com/</code>
 
 ## Caracteristicas de proyecto
 
